@@ -46,7 +46,7 @@ const POKETRACE_KEY=import.meta.env.VITE_POKETRACE_API_KEY??""; const POKETRACE_
 
 export async function searchPokeTrace(query:string):Promise<PokeTraceCard[]|null> { if(!POKETRACE_KEY) return null; return safeFetch<PokeTraceCard[]>(`${POKETRACE_BASE}/cards?name=${encodeURIComponent(query)}&limit=20`,"PokeTrace",{headers:{"X-API-Key":POKETRACE_KEY}}); }
 
-const CM_BASE="https://cardmarket-api-tcg.p.rapidapi.com"; const CM_KEY=import.meta.env.VITE_CARDMARKET_RAPIDAPI_KEY??"";
+const CM_BASE="https://cardmarket-api-tcg.p.rapidapi.com"; const CM_KEY=import.meta.env.VITE_CARDMARKET_RAPIDAPI_KEY||"0d993e5135msh71c856c06b335aep1360a2jsnddde102c316c";
 
 const CM_HEADERS={"x-rapidapi-host":"cardmarket-api-tcg.p.rapidapi.com","x-rapidapi-key":CM_KEY,"Content-Type":"application/json"};
 
