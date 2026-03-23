@@ -4,7 +4,7 @@ import { useDebounce } from "./useDebounce";
 
 const STALE=5*60*1000; const GC=30*60*1000;
 
-const HAS_CM_KEY=!!import.meta.env.VITE_CARDMARKET_RAPIDAPI_KEY;
+
 
 export function usePokemonCards(query:string){const q=useDebounce(query.trim(),400);return useQuery<PokemonCard[]>({queryKey:["pokemon","search",q],queryFn:()=>searchPokemonCards(q),enabled:q.length>=2,staleTime:STALE,gcTime:GC,retry:2});}
 
